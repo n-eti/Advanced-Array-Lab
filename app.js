@@ -113,25 +113,30 @@ let dishes = [
 ]
 
 //Example function
-//IMPORTANT: Take the time to step through this example function with a breakpoint until you could explain what is going on to someone else before starting this lab.
+//IMPORTANT: Take the time to step through this example function with a breakpoint until you 
+// could explain what is going on to someone else before starting this lab.
 
-function filterExample(){
-    //Debug tip: Use a console.log(el) inside the filter function to get a visualization of what el represents and see all its properties! This helps you to know what you can access with dot notation inside the filter. Do this every time you use a .filter or else you are working in the dark!
-    let results;
-    results = dishes.filter(function(el){
-        console.log("el inside filterExample's filter: ", el)
-        if(el.cuisine === "Mexican"){
-            return true;
-        }
-        else{
-            return false;
-        }})
+// function filterExample(){
+    //Debug tip: Use a console.log(el) inside the filter function to get a visualization of what el represents and see all its properties! 
+    // This helps you to know what you can access with dot notation inside the filter. 
+    // Do this every time you use a .filter or else you are working in the dark!
+//     let results;
+//     results = dishes.filter(function(el){
+//         console.log("el inside filterExample's filter: ", el)
+//         console.log(el)
+//         if(el.cuisine === "Mexican"){
+//             return true;
+//         }
+//         else{
+//             return false;
+//         }
+//     })
 
-    return results;
-}
+//     return results;
+// }
 
-let mexicanFood = filterExample();
-console.log('mexicanFood from filterExample', mexicanFood)
+// let mexicanFood = filterExample();
+// console.log('mexicanFood from filterExample', mexicanFood)
 
 
 
@@ -142,17 +147,55 @@ console.log('mexicanFood from filterExample', mexicanFood)
 function problemOne(){
 
     let results;
-
+    results= dishes.filter(function(el){
+        // console.log("el inside filterExample's filter: ", el)
+        if(el.cuisine === "Vegetarian"){
+            return true;
+        }
+        else{
+            return false;
+        }
+    })
     return results;
 }
 
-//2. Create a function that will prompt the user to enter a cuisine type and then return all dishes that match that type
+let vegetarianFood = problemOne();
+console.log('Vegetarian food from problemOne', vegetarianFood)
+
+//2. Create a function that will prompt the user to enter a cuisine type and then return 
+// all dishes that match that type
 //Filter
+function problemTwo (dishes){
+    let searchTyoe = promptFor(
+        "Do you know the type of cuisine you would like to search for? Enter 'yes' or 'no'",
+        yesNo
+    ).toLowerCase();
+    let searchResults;
+    switch (searchType) {
+        case "yes":
+            searchResults = searchByCuisine(dishes);
+            break;
+        case "no":
+            searchResults = searchByCuisine(dishes);
+            break;
+        default:
+            problemTwo(dishes);
+            break;
+}}
+function searchByCuisine(dishes){
+    let cuisineType = promptFor("What is your desired cuisine type?", chars);
 
+let foundCuisine = dishes.filter(function (dish){
+    if (dish.cuisines === dish.cuisines){
+        return true;
+    }
+});
 
-
+return foundCuisine;
+}
 //3. Create a function that will return all dishes with the cuisine type of "Italian" and a serving size greater than 5.
 //Filter
+
 
 
 
